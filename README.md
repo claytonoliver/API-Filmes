@@ -6,10 +6,10 @@ Este projeto foi desenvolvido como parte de um projeto Full Stack, onde por meio
 
 ## Funcionalidades Principais
 
-C - Create (Inclusão de filmes no banco de dados)
-R - Read (Leitura dos filmes cadastrados no banco de dados modo geral e por ID)
-U - Update (Atualização de filmes no banco de dados por ID)
-D - Delete (Deletar um filme no banco de dados por um ID)
+- C - Create (Inclusão de filmes no banco de dados)
+- R - Read (Leitura dos filmes cadastrados no banco de dados modo geral e por ID)
+- U - Update (Atualização de filmes no banco de dados por ID)
+- D - Delete (Deletar um filme no banco de dados por um ID)
 
 ## Tecnologias Utilizadas
 
