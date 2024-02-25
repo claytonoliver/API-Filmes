@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\clayt\\Documents\\projetos\\APIALura\\ApiFilmes\\ApiFilmes.csproj": {}
+    "C:\\Users\\clayt\\Documents\\projetos\\API-Filmes\\ApiFilmes\\ApiFilmes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\clayt\\Documents\\projetos\\APIALura\\ApiFilmes\\ApiFilmes.csproj": {
+    "C:\\Users\\clayt\\Documents\\projetos\\API-Filmes\\ApiFilmes\\ApiFilmes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\clayt\\Documents\\projetos\\APIALura\\ApiFilmes\\ApiFilmes.csproj",
+        "projectUniqueName": "C:\\Users\\clayt\\Documents\\projetos\\API-Filmes\\ApiFilmes\\ApiFilmes.csproj",
         "projectName": "ApiFilmes",
-        "projectPath": "C:\\Users\\clayt\\Documents\\projetos\\APIALura\\ApiFilmes\\ApiFilmes.csproj",
+        "projectPath": "C:\\Users\\clayt\\Documents\\projetos\\API-Filmes\\ApiFilmes\\ApiFilmes.csproj",
         "packagesPath": "C:\\Users\\clayt\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\clayt\\Documents\\projetos\\APIALura\\ApiFilmes\\obj\\",
+        "outputPath": "C:\\Users\\clayt\\Documents\\projetos\\API-Filmes\\ApiFilmes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\clayt\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,20 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
