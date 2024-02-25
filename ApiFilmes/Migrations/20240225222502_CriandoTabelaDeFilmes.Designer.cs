@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiFilmes.Migrations
 {
     [DbContext(typeof(FilmeContext))]
-    [Migration("20240225194737_CriandoTabelaDeFilme")]
-    partial class CriandoTabelaDeFilme
+    [Migration("20240225222502_CriandoTabelaDeFilmes")]
+    partial class CriandoTabelaDeFilmes
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,8 +37,7 @@ namespace ApiFilmes.Migrations
 
                     b.Property<string>("Titulo")
                         .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("varchar(80)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 

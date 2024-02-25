@@ -1,19 +1,25 @@
 [
   {
     "ContainingType": "ApiFilmes.Controllers.FilmeController",
-    "Method": "AdicionarFilme",
+    "Method": "AdicionaFilme",
     "RelativePath": "Filme",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "filme",
-        "Type": "ApiFilmes.Models.Filme",
+        "Name": "filmeDto",
+        "Type": "ApiFilmes.Data.DTOs.CreateFilmeDto",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 201
+      }
+    ]
   },
   {
     "ContainingType": "ApiFilmes.Controllers.FilmeController",
@@ -36,7 +42,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[ApiFilmes.Models.Filme, ApiFilmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ApiFilmes.Data.DTOs.ReadFilmeDto, ApiFilmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -51,6 +57,43 @@
     "Method": "RecuperarFimePorId",
     "RelativePath": "Filme/{id}",
     "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiFilmes.Controllers.FilmeController",
+    "Method": "AtualizarFilme",
+    "RelativePath": "Filme/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "filmeDto",
+        "Type": "ApiFilmes.Data.DTOs.UpdateFilmeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiFilmes.Controllers.FilmeController",
+    "Method": "DeletarFilme",
+    "RelativePath": "Filme/{id}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ApiFilmes.Migrations
 {
     /// <inheritdoc />
-    public partial class CriandoTabelaDeFilme : Migration
+    public partial class CriandoTabelaDeFilmes : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,7 +20,7 @@ namespace ApiFilmes.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Titulo = table.Column<string>(type: "varchar(80)", maxLength: 80, nullable: false)
+                    Titulo = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Genero = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),

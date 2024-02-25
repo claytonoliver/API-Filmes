@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiFilmes</name>
+    </assembly>
+    <members>
+        <member name="M:ApiFilmes.Controllers.FilmeController.AdicionaFilme(ApiFilmes.Data.DTOs.CreateFilmeDto)">
+            <summary>
+            Adiciona um filme ao banco de dados
+            </summary>
+            <param name="filmeDto">Objeto com os campos necessários para criação de um filme</param>
+            <returns>IActionResult</returns>
+            <response code="201">Caso inserção seja feita com sucesso</response>
+        </member>
+        <member name="M:ApiFilmes.Controllers.FilmeController.RecuperarFilmes(System.Int32,System.Int32)">
+            <summary>
+            Consulta filmes no banco de dados
+            </summary>
+            <param name="filmeDto">Objeto com os campos necessários para criação de um filme</param>
+            <returns>IActionResult</returns>
+            <response code="200">Caso busca seja feita com sucesso</response>
+        </member>
+        <member name="M:ApiFilmes.Controllers.FilmeController.RecuperarFimePorId(System.Int32)">
+            <summary>
+            Consulta filmes no banco de dados por ID
+            </summary>
+            <param name="filmeDto">Objeto com os campos necessários para criação de um filme</param>
+            <returns>IActionResult</returns>
+            <response code="200">Caso busca seja feita com sucesso</response>
+        </member>
+        <member name="M:ApiFilmes.Controllers.FilmeController.AtualizarFilme(System.Int32,ApiFilmes.Data.DTOs.UpdateFilmeDto)">
+            <summary>
+            Atualiza filmes no banco de dados por ID
+            </summary>
+            <param name="filmeDto">Objeto com os campos necessários para criação de um filme</param>
+            <returns>IActionResult</returns>
+            <response code="204">Caso busca seja feita com sucesso</response>
+        </member>
+        <member name="M:ApiFilmes.Controllers.FilmeController.DeletarFilme(System.Int32)">
+            <summary>
+            Atualiza filmes no banco de dados por ID
+            </summary>
+            <param name="filmeDto">Objeto com os campos necessários para criação de um filme</param>
+            <returns>IActionResult</returns>
+            <response code="204">Caso busca seja feita com sucesso</response>
+            
+        </member>
+        <member name="T:ApiFilmes.Migrations.CriandoTabelaDeFilmes">
+            <inheritdoc />
+        </member>
+        <member name="M:ApiFilmes.Migrations.CriandoTabelaDeFilmes.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ApiFilmes.Migrations.CriandoTabelaDeFilmes.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ApiFilmes.Migrations.CriandoTabelaDeFilmes.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

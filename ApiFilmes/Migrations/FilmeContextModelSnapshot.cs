@@ -34,8 +34,7 @@ namespace ApiFilmes.Migrations
 
                     b.Property<string>("Titulo")
                         .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("varchar(80)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 

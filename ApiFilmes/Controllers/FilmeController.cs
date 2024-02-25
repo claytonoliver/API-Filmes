@@ -1,4 +1,7 @@
-﻿using ApiFilmes.Models;
+﻿using ApiFilmes.Data;
+using ApiFilmes.Data.DTOs;
+using ApiFilmes.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
@@ -11,36 +14,95 @@ namespace ApiFilmes.Controllers;
 [Route("[controller]")]
 public class FilmeController : ControllerBase
 {
-    private static List<Filme> filmes = new List<Filme>();
-    private static int id = 0;
+    private FilmeContext _context;
+    private IMapper _mapper;
 
-    //trabalhar requisição POST, GET...
-    [HttpPost()]
-    //indicar pelo frombody que a informação como parametro vem do corpo da requisição
-    public IActionResult AdicionarFilme([FromBody]Filme filme)
+    public FilmeController(FilmeContext context, IMapper mapper)
     {
-        filme.Id = id++;
-        filmes.Add(filme);
-        //recebe primeiro parametro no caso o metodo que retorna o filme por ID... Elemento, objetos/parametros, objeto criado no sistema
-        return CreatedAtAction(nameof(RecuperarFimePorId), new { id = filme.Id }, filme);
+        _context = context;
+        _mapper = mapper;
     }
 
+    /// <summary>
+    /// Adiciona um filme ao banco de dados
+    /// </summary>
+    /// <param name="filmeDto">Objeto com os campos necessários para criação de um filme</param>
+    /// <returns>IActionResult</returns>
+    /// <response code="201">Caso inserção seja feita com sucesso</response>
+
+    [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    public IActionResult AdicionaFilme([FromBody] CreateFilmeDto filmeDto)
+    {
+        Filme filme = _mapper.Map<Filme>(filmeDto);
+        _context.Filmes.Add(filme);
+        _context.SaveChanges();
+        return CreatedAtAction(nameof(RecuperarFimePorId),
+        new { id = filme.Id },
+        filme);
+    }
+
+    /// <summary>
+    /// Consulta filmes no banco de dados
+    /// </summary>
+    /// <param name="filmeDto">Objeto com os campos necessários para criação de um filme</param>
+    /// <returns>IActionResult</returns>
+    /// <response code="200">Caso busca seja feita com sucesso</response>
+    
     [HttpGet]
-    public IEnumerable<Filme> RecuperarFilmes([FromQuery]int skip = 0, [FromQuery] int take = 20)
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public IEnumerable<ReadFilmeDto> RecuperarFilmes([FromQuery] int skip = 0, [FromQuery] int take = 20)
     {
-        return filmes.Skip(skip).Take(take);
+        return _mapper.Map<List<ReadFilmeDto>>(_context.Filmes.Skip(skip).Take(take));
     }
 
-    //para diferenciar precisa mudar o ID direto na URL /numero ID
-    [HttpGet("{id}")]
-    //? indica que pode ser ou não nulo
+    /// <summary>
+    /// Consulta filmes no banco de dados por ID
+    /// </summary>
+    /// <param name="filmeDto">Objeto com os campos necessários para criação de um filme</param>
+    /// <returns>IActionResult</returns>
+    /// <response code="200">Caso busca seja feita com sucesso</response>
 
-    //IActionresult resultado de uma ação
+    [HttpGet("{id}")]
     public IActionResult RecuperarFimePorId(int id)
     {
-        //filme => tem o filme.id == id do parametro
-        var filme = filmes.FirstOrDefault(filme => filme.Id == id);
+        var filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
         if (filme == null) return NotFound();
-        return Ok();
+        var filmeDto = _mapper.Map<ReadFilmeDto>(filme);
+        return Ok(filmeDto);
+    }
+
+    /// <summary>
+    /// Atualiza filmes no banco de dados por ID
+    /// </summary>
+    /// <param name="filmeDto">Objeto com os campos necessários para criação de um filme</param>
+    /// <returns>IActionResult</returns>
+    /// <response code="204">Caso busca seja feita com sucesso</response>
+    
+    [HttpPut("{id}")]
+    public IActionResult AtualizarFilme (int id, [FromBody] UpdateFilmeDto filmeDto)
+    {
+        var filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
+        if(filme == null) return NotFound();
+        _mapper.Map(filmeDto, filme);
+        _context.SaveChanges();
+        return NoContent();
+    }
+
+    /// <summary>
+    /// Atualiza filmes no banco de dados por ID
+    /// </summary>
+    /// <param name="filmeDto">Objeto com os campos necessários para criação de um filme</param>
+    /// <returns>IActionResult</returns>
+    /// <response code="204">Caso busca seja feita com sucesso</response>
+    /// 
+    [HttpDelete("{id}")]
+    public IActionResult DeletarFilme(int id)
+    {
+        var filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
+        if (filme == null) return NotFound();
+        _context.Remove(filme);
+        _context.SaveChanges();
+        return NoContent();
     }
 }

@@ -135,3 +135,6 @@ C:\Users\clayt\Documents\projetos\API-Filmes\ApiFilmes\obj\Debug\net8.0\refint\A
 C:\Users\clayt\Documents\projetos\API-Filmes\ApiFilmes\obj\Debug\net8.0\ApiFilmes.pdb
 C:\Users\clayt\Documents\projetos\API-Filmes\ApiFilmes\obj\Debug\net8.0\ApiFilmes.genruntimeconfig.cache
 C:\Users\clayt\Documents\projetos\API-Filmes\ApiFilmes\obj\Debug\net8.0\ref\ApiFilmes.dll
+C:\Users\clayt\Documents\projetos\API-Filmes\ApiFilmes\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\clayt\Documents\projetos\API-Filmes\ApiFilmes\bin\Debug\net8.0\ApiFilmes.xml
+C:\Users\clayt\Documents\projetos\API-Filmes\ApiFilmes\obj\Debug\net8.0\ApiFilmes.xml
