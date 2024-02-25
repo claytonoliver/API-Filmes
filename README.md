@@ -22,13 +22,14 @@ D - Delete (Deletar um filme no banco de dados por um ID)
 ## Como Executar o Projeto
 
 1. Clone este repositório: `git clone https://github.com/claytonoliver/API-Filmes`
-   Instale as dependencias:
+   
+2.  Instale as dependencias:
    AutoMapper - dotnet add package AutoMapper --version 13.0.1
    Entity Framework Core - dotnet add package Microsoft.EntityFrameworkCore --version 8.0.2
    Entity Framework Core Tools - dotnet add package Microsoft.EntityFrameworkCore.Tools --version 8.0.2
    Pomelo Entity Framework Core - dotnet add package Pomelo.EntityFrameworkCore.MySql --version 8.0.0
 
-2. Instale o Mysql workbench
+3. Instale o Mysql workbench
    link para dowload: https://dev.mysql.com/downloads/installer/
 
    obs: Para uso na API foi utilizado usuário e senha "root"
