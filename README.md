@@ -37,6 +37,10 @@ Este projeto foi desenvolvido como parte de um projeto Full Stack, onde por meio
 4. Caso tenha utilizado um usuário e senha diferentes não esqueça de alterar no arquivo appsettings.json
    "FilmeConnection": "server=localhost;database=filme;user=root;password=root"
 
+5. Não se esqueça de adicionar a migration e aplicar no banco de dados
+   - Add-Migration CriandoTabelaDeFilmes
+   - Update-Database
+
 ## Contribuições
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests.
